@@ -13,8 +13,8 @@ pkgs.writeShellScriptBin "dev-env" ''
     ${envrcContent}
   EOF
   cat <<'EOF' > .gitignore
-    .envrc
-    .direnv/
+.envrc
+.direnv/
   EOF
   direnv allow
 ''
