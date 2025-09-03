@@ -26,8 +26,8 @@
         python3 = prev.python312.override {
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
-            mpi4py = py-final.callPackage ./pkgs/mpi4py { };
-            petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
+            #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
+            #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
           };
         };
     };
