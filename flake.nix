@@ -23,7 +23,7 @@
         petscrc-update = prev.callPackage ./pkgs/petscrc-update { };
         waybar-weather = prev.callPackage ./pkgs/waybar-weather { };
 
-        python3 = prev.python312.override {
+        python312 = prev.python312.override {
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
             #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
