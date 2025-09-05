@@ -1,5 +1,5 @@
 { lib,
-  distutils,
+  #distutils,
   buildPythonPackage,
   fetchPypi,
   setuptools,
@@ -20,6 +20,10 @@ buildPythonPackage rec {
     hash = "sha256-u7SVcQLbQbyZrXLCM7zpL50f2RvjUvwHh4xDYQM6QB8=";
   };
 
+  patches = [
+    ./fix-distutils.patch
+  ];
+
   build-system = [
     setuptools
     setuptools_scm
@@ -27,7 +31,7 @@ buildPythonPackage rec {
   ];
 
   propagatedBuildInputs = [
-    distutils
+    #distutils
     mako
     pybind11
     filelock
