@@ -1,4 +1,5 @@
 { lib,
+  distutils,
   buildPythonPackage,
   fetchPypi,
   setuptools,
@@ -25,7 +26,12 @@ buildPythonPackage rec {
     wheel
   ];
 
-  propagatedBuildInputs = [ mako pybind11 filelock ];
+  propagatedBuildInputs = [
+    distutils
+    mako
+    pybind11
+    filelock
+  ];
 
   doCheck = false;
   pythonImportsCheck = [ "cppimport" ];
