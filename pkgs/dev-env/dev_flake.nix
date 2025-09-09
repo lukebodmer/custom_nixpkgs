@@ -13,6 +13,10 @@
           inherit system;
           overlays = [ custom-nixpkgs.overlays.default ];
         };
+
+	# Choose a specific Python version for all packages
+	python = pkgs.python312;
+
       in
         {
           devShells.${system}.default = pkgs.mkShell {
@@ -21,24 +25,21 @@
             packages = [
             # General packages
               # pkgs.hello-nix
-              # pkgs.petsc
-              # pkgs.mpich
-              # pkgs.clangd
-              #  # Python packages
-              #(pkgs.python3.withPackages (python-pkgs: [
+
+            # Python packages
+              #(python.withPackages (ps: with ps; [
               #  # packages for formatting/ IDE
-              #  python-pkgs.pip
-              #  python-pkgs.python-lsp-server
+              #  python-lsp-server
+	      #  pyls-flake8
+              #  flake8
+
               #  # packages for code
-              #  python-pkgs.gmsh
-              #  python-pkgs.matplotlib
-              #  python-pkgs.meshio
-              #  python-pkgs.numpy
-              #  python-pkgs.firedrake
+              #  matplotlib
+              #  numpy
               #]))
             ];
 
-            # PETSC_DIR = "${pkgs.petsc}";
+            # ENVIRONMENT_VARIABLE_EXAMPLE = "${pkgs.hello-nix}";
 
             shellHook = ''
               export VIRTUAL_ENV="Custom Environment"
