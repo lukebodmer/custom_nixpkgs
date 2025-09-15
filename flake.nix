@@ -26,7 +26,18 @@
         python312 = prev.python312.override {
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
-	    trame = py-final.callPackage ./pkgs/trame { };
+	    trame = py-final.callPackage ./pkgs/trame {
+	      inherit trame_server;
+	      inherit trame_client;
+	    };
+	    trame_common = py-final.callPackage ./pkgs/trame-common {
+	    };
+	    trame_client = py-final.callPackage ./pkgs/trame-client {
+	      inherit trame_common;
+	    };
+	    trame_server = py-final.callPackage ./pkgs/trame-server {
+	      inherit wslink;
+	    };
 	    wslink = py-final.callPackage ./pkgs/wslink { };
             #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
             #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
@@ -43,8 +54,20 @@
       petsc-project = pkgs.callPackage ./pkgs/petsc-project { };
       petscrc-update = pkgs.callPackage ./pkgs/petscrc-update { };
       petsc4py = pkgs.python3Packages.callPackage ./pkgs/petsc4py {
-        inherit petsc; };
-      trame = pkgs.python312Packages.callPackage ./pkgs/trame{ };
+        inherit petsc;
+      };
+      trame = pkgs.python312Packages.callPackage ./pkgs/trame{
+        inherit trame_client;
+        inherit trame_server;
+      };
+      trame_client = pkgs.python312Packages.callPackage ./pkgs/trame-client{
+        inherit trame_common;
+      };
+      trame_common = pkgs.python312Packages.callPackage ./pkgs/trame-common{
+      };
+      trame_server = pkgs.python312Packages.callPackage ./pkgs/trame-server {
+	inherit wslink;
+      };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
       wslink = pkgs.python312Packages.callPackage ./pkgs/wslink { };
     };

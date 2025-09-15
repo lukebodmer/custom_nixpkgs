@@ -3,6 +3,7 @@
   pyyaml,
   fetchPypi,
   setuptools,
+  trame_server,
   setuptools_scm,
   wheel,
 }:
@@ -25,6 +26,7 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [
     pyyaml
+    trame_server
   ];
 
   doCheck = false;

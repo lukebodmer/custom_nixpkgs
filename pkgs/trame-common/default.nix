@@ -7,7 +7,7 @@
 }:
 
 buildPythonPackage rec {
-  pname = "trame_server";
+  pname = "trame_common";
   version = "3.6.0";
   pyproject = true;
 
@@ -26,7 +26,7 @@ buildPythonPackage rec {
   ];
 
   doCheck = false;
-  pythonImportsCheck = [ "trame_server" ];
+  pythonImportsCheck = [ "trame_common" ];
 
   meta = with lib; {
     description = "server implementation of trame";
