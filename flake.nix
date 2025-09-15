@@ -26,6 +26,7 @@
         python312 = prev.python312.override {
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
+	    trame = py-final.callPackage ./pkgs/trame { };
             #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
             #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
           };
@@ -42,6 +43,7 @@
       petscrc-update = pkgs.callPackage ./pkgs/petscrc-update { };
       petsc4py = pkgs.python3Packages.callPackage ./pkgs/petsc4py {
         inherit petsc; };
+      trame = pkgs.python312Packages.callPackage ./pkgs/trame{ };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
     };
   };
