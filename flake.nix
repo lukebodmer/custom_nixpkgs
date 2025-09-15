@@ -27,8 +27,8 @@
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
 	    trame = py-final.callPackage ./pkgs/trame {
-	      inherit trame_server;
-	      inherit trame_vuetify;
+	     #inherit trame_server;
+	     #inherit trame_vuetify;
 	    };
 	    trame_common = py-final.callPackage ./pkgs/trame-common {
 	    };
