@@ -20,9 +20,6 @@ buildPythonPackage rec {
     hatchling
   ];
 
-  propagatedBuildInputs = [
-  ];
-
   doCheck = false;
   pythonImportsCheck = [ "trame_common" ];
 
