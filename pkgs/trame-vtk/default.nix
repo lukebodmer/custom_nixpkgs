@@ -3,6 +3,7 @@
   fetchPypi,
   setuptools,
   trame_client,
+  hatchling
 }:
 
 buildPythonPackage rec {
@@ -17,6 +18,7 @@ buildPythonPackage rec {
 
   build-system = [
     setuptools
+    hatchling
   ];
 
   dependencies = [
