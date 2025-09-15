@@ -1,15 +1,14 @@
 { lib,
   buildPythonPackage,
-  pyyaml,
+  aiohttp,
+  msgpack,
   fetchPypi,
   setuptools,
-  setuptools_scm,
-  wheel,
 }:
 
 buildPythonPackage rec {
-  pname = "trame";
-  version = "3.12.0";
+  pname = "wslink";
+  version = "2.4.0";
   pyproject = true;
 
   src = fetchPypi {
@@ -19,21 +18,20 @@ buildPythonPackage rec {
 
   build-system = [
     setuptools
-    #setuptools_scm
-    #wheel
   ];
 
   propagatedBuildInputs = [
-    pyyaml
+    aiohttp
+    msgpack
   ];
 
   doCheck = false;
-  pythonImportsCheck = [ "trame" ];
+  pythonImportsCheck = [ "wslink" ];
 
   meta = with lib; {
-    description = "open-source platform for creating interactive and powerful visual analytics applications";
-    homepage = "https://kitware.github.io/trame/";
-    license = licenses.asl20;
+    description = "easy, bi-directional communication between a python server and a javascript client over a websocket.";
+    homepage = "https://github.com/kitware/wslink";
+    license = licenses.bsd3;
   };
 }
 

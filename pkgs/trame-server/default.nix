@@ -1,15 +1,13 @@
 { lib,
   buildPythonPackage,
-  pyyaml,
+  more-itertools,
   fetchPypi,
   setuptools,
-  setuptools_scm,
-  wheel,
 }:
 
 buildPythonPackage rec {
-  pname = "trame";
-  version = "3.12.0";
+  pname = "trame-server";
+  version = "3.6.0";
   pyproject = true;
 
   src = fetchPypi {
@@ -19,12 +17,10 @@ buildPythonPackage rec {
 
   build-system = [
     setuptools
-    #setuptools_scm
-    #wheel
   ];
 
   propagatedBuildInputs = [
-    pyyaml
+    more-itertools
   ];
 
   doCheck = false;

@@ -27,6 +27,7 @@
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
 	    trame = py-final.callPackage ./pkgs/trame { };
+	    wslink = py-final.callPackage ./pkgs/wslink { };
             #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
             #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
           };
@@ -45,6 +46,7 @@
         inherit petsc; };
       trame = pkgs.python312Packages.callPackage ./pkgs/trame{ };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
+      wslink = pkgs.python312Packages.callPackage ./pkgs/wslink { };
     };
   };
 }
