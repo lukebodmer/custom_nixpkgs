@@ -56,17 +56,17 @@
       petsc4py = pkgs.python3Packages.callPackage ./pkgs/petsc4py {
         inherit petsc;
       };
-      #trame = pkgs.python312Packages.callPackage ./pkgs/trame{
-      #  inherit trame_client;
-      #  inherit trame_server;
-      #};
-      #trame_common = pkgs.python312Packages.callPackage ./pkgs/trame-common { };
-      #trame_client = pkgs.python312Packages.callPackage ./pkgs/trame-client{
-      #  inherit trame_common;
-      #};
-      #trame_server = pkgs.python312Packages.callPackage ./pkgs/trame-server {
-      #	inherit wslink;
-      #};
+      trame = pkgs.python312Packages.callPackage ./pkgs/trame{
+        inherit trame_client;
+        inherit trame_server;
+      };
+      trame_common = pkgs.python312Packages.callPackage ./pkgs/trame-common { };
+      trame_client = pkgs.python312Packages.callPackage ./pkgs/trame-client{
+        inherit trame_common;
+      };
+      trame_server = pkgs.python312Packages.callPackage ./pkgs/trame-server {
+      	inherit wslink;
+      };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
       wslink = pkgs.python312Packages.callPackage ./pkgs/wslink { };
     };

@@ -21,7 +21,7 @@ buildPythonPackage rec {
     setuptools
   ];
 
-  propagatedBuildInputs = [
+  dependencies = [
     pyyaml
     trame_server
     trame_client
