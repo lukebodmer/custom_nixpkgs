@@ -24,7 +24,7 @@ buildPythonPackage rec {
 
   dependencies = [
     #trame_client
-    trame_client
+    #trame_client
     trame_vtk
   ];
 
