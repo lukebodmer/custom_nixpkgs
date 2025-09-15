@@ -3,6 +3,7 @@
   fetchPypi,
   setuptools,
   trame_client,
+  trame_vtk,
   hatchling
 }:
 
@@ -13,13 +14,14 @@ buildPythonPackage rec {
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-JCPwy3wBm9kZ0xPpBKuN4v4dv8Xj/3eWH8E+qdG4lZQ=";
+    hash = "sha256-gITuQ4LbH20X0PdYkKcPZ6MIvrtX1UhuE0nHRogS7Pg=";
   };
 
   build-system = [
     setuptools
     #hatchling
     trame_client
+    trame_vtk
   ];
 
   dependencies = [
