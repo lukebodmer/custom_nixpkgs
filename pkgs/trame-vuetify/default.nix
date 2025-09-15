@@ -20,16 +20,16 @@ buildPythonPackage rec {
   build-system = [
     setuptools
     #hatchling
-    trame_client
-    trame_vtk
   ];
 
   dependencies = [
     #trame_client
+    trame_client
+    trame_vtk
   ];
 
   doCheck = false;
-  pythonImportsCheck = [ "trame_vtk" ];
+  pythonImportsCheck = [ "trame_vuetify" ];
 
   meta = with lib; {
     description = "VTK integration in trame allows you to create rich visualization and data processing applications by leveraging the Python wrapping of the VTK library.";
