@@ -4,8 +4,8 @@
   fetchPypi,
   setuptools,
   #trame_client,
-  trame_vuetify,
-  trame_server
+  #trame_vuetify,
+  #trame_server
 }:
 
 buildPythonPackage rec {
@@ -24,8 +24,8 @@ buildPythonPackage rec {
 
   dependencies = [
     pyyaml
-    trame_server
-    trame_vuetify
+    #trame_server
+    #trame_vuetify
   ];
 
   doCheck = false;
