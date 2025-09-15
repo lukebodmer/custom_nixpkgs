@@ -6,12 +6,6 @@
 , msgpack
 , more-itertools
 , hatchling
-#, trame_client
-#, trame_server
-#, trame_common
-#, trame_vuetify
-#, trame_vtk
-#, wslink
 , pyyaml
 }:
 let
@@ -208,7 +202,7 @@ buildPythonPackage rec {
   build-system = [ setuptools ];
 
   # replicate what pip would pull in
-  propagatedBuildInputs = [
+  buildInputs = [
     pyyaml
     trame_client
     trame_server
