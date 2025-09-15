@@ -20,6 +20,8 @@ buildPythonPackage rec {
   build-system = [
     setuptools
     #hatchling
+
+    trame_client
   ];
 
   dependencies = [
