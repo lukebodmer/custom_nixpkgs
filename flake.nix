@@ -41,7 +41,7 @@
 	    trame_vtk = py-final.callPackage ./pkgs/trame-vtk {
 	      inherit trame_client;
 	    };
-	    trame_vuetify = pkgs.python312Packages.callPackage ./pkgs/trame-vuetify {
+	    trame_vuetify = py-final.callPackage ./pkgs/trame-vuetify {
       	      inherit trame_client;
 	      inherit trame_vtk;
 	    };
