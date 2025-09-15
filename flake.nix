@@ -41,6 +41,10 @@
 	    trame_vtk = py-final.callPackage ./pkgs/trame-vtk {
 	      inherit trame_client;
 	    };
+	    trame_vuetify = pkgs.python312Packages.callPackage ./pkgs/trame-vuetify {
+      	      inherit trame_client;
+	      inherit trame_vtk;
+	    };
 	    wslink = py-final.callPackage ./pkgs/wslink { };
             #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
             #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
