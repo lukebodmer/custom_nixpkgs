@@ -19,10 +19,11 @@ buildPythonPackage rec {
   build-system = [
     setuptools
     hatchling
+    trame_client
   ];
 
   dependencies = [
-    trame_client
+    #trame_client
   ];
 
   doCheck = false;
