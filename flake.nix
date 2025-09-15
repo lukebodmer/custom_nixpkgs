@@ -31,7 +31,6 @@
 	     inherit trame_client;
 	     inherit trame_common;
 	     inherit wslink;
-
 	    };
 	    trame_common = py-final.callPackage ./pkgs/trame-common {
 	    };

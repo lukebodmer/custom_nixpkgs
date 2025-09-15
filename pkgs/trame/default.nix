@@ -2,11 +2,13 @@
 , buildPythonPackage
 , fetchPypi
 , setuptools
-, pyyaml
-, trame_server
 , trame_client
+, trame_server
 , trame_common
+, trame_vuetify
+, trame_vtk
 , wslink
+, pyyaml
 }:
 
 buildPythonPackage rec {
@@ -21,11 +23,14 @@ buildPythonPackage rec {
 
   build-system = [ setuptools ];
 
+  # replicate what pip would pull in
   dependencies = [
     pyyaml
-    trame_server
     trame_client
+    trame_server
     trame_common
+    trame_vuetify
+    trame_vtk
     wslink
   ];
 
@@ -33,7 +38,7 @@ buildPythonPackage rec {
   pythonImportsCheck = [ "trame" ];
 
   meta = with lib; {
-    description = "Open-source platform for creating interactive and powerful visual analytics applications";
+    description = "Unified front-end for interactive applications (umbrella package)";
     homepage = "https://kitware.github.io/trame/";
     license = licenses.asl20;
   };
