@@ -3,7 +3,6 @@
   pyyaml,
   fetchPypi,
   setuptools,
-  trame_common,
   trame_client,
   trame_server
 }:
@@ -24,7 +23,6 @@ buildPythonPackage rec {
 
   propagatedBuildInputs = [
     pyyaml
-    trame_common
     trame_server
     trame_client
   ];

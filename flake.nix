@@ -29,7 +29,6 @@
 	    trame = py-final.callPackage ./pkgs/trame {
 	      inherit trame_server;
 	      inherit trame_client;
-	      inherit trame_common;
 	    };
 	    trame_common = py-final.callPackage ./pkgs/trame-common {
 	    };
@@ -60,7 +59,6 @@
       trame = pkgs.python312Packages.callPackage ./pkgs/trame{
         inherit trame_client;
         inherit trame_server;
-        inherit trame_common;
       };
       trame_common = pkgs.python312Packages.callPackage ./pkgs/trame-common { };
       trame_client = pkgs.python312Packages.callPackage ./pkgs/trame-client{
