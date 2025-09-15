@@ -73,6 +73,9 @@
       trame_vtk = pkgs.python312Packages.callPackage ./pkgs/trame-vtk {
       	inherit trame_client;
       };
+      trame_vuetify = pkgs.python312Packages.callPackage ./pkgs/trame-vuetify {
+      	inherit trame_client;
+      };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
       wslink = pkgs.python312Packages.callPackage ./pkgs/wslink { };
     };
