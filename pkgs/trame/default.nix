@@ -24,7 +24,7 @@ buildPythonPackage rec {
   build-system = [ setuptools ];
 
   # replicate what pip would pull in
-  dependencies = [
+  propagatedBuildInputs = [
     pyyaml
     trame_client
     trame_server

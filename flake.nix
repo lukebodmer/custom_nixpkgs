@@ -30,6 +30,8 @@
 	     inherit trame_server;
 	     inherit trame_client;
 	     inherit trame_common;
+	     inherit trame_vuetify;
+	     inherit trame_vtk;
 	     inherit wslink;
 	    };
 	    trame_common = py-final.callPackage ./pkgs/trame-common {
@@ -66,8 +68,12 @@
         inherit petsc;
       };
       trame = pkgs.python312Packages.callPackage ./pkgs/trame{
-	#inherit trame_vuetify;
-        #inherit trame_server;
+	inherit trame_server;
+	inherit trame_client;
+	inherit trame_common;
+	inherit trame_vuetify;
+	inherit trame_vtk;
+	inherit wslink;
       };
       trame_common = pkgs.python312Packages.callPackage ./pkgs/trame-common { };
       trame_client = pkgs.python312Packages.callPackage ./pkgs/trame-client{
