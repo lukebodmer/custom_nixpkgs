@@ -38,6 +38,9 @@
 	    trame_server = py-final.callPackage ./pkgs/trame-server {
 	      inherit wslink;
 	    };
+	    trame_vtk = py-final.callPackage ./pkgs/trame-vtk {
+	      inherit trame_client;
+	    };
 	    wslink = py-final.callPackage ./pkgs/wslink { };
             #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
             #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
@@ -66,6 +69,9 @@
       };
       trame_server = pkgs.python312Packages.callPackage ./pkgs/trame-server {
       	inherit wslink;
+      };
+      trame_vtk = pkgs.python312Packages.callPackage ./pkgs/trame-vtk {
+      	inherit trame_client;
       };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
       wslink = pkgs.python312Packages.callPackage ./pkgs/wslink { };
