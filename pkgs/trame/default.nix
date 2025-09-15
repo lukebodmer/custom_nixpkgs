@@ -3,9 +3,9 @@
   pyyaml,
   fetchPypi,
   setuptools,
-  trame_server,
-  setuptools_scm,
-  wheel,
+  trame_common,
+  trame_client,
+  trame_server
 }:
 
 buildPythonPackage rec {
@@ -20,13 +20,13 @@ buildPythonPackage rec {
 
   build-system = [
     setuptools
-    #setuptools_scm
-    #wheel
   ];
 
   propagatedBuildInputs = [
     pyyaml
+    trame_common
     trame_server
+    trame_client
   ];
 
   doCheck = false;

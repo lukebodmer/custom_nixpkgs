@@ -3,7 +3,6 @@
   fetchPypi,
   setuptools,
   trame_common,
-  wslink
 }:
 
 buildPythonPackage rec {
@@ -13,7 +12,7 @@ buildPythonPackage rec {
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-bHXawT6ENpkPmv/yFSjmQoD1OVr6LirpYo5ko0BM3l4=";
+    hash = "sha256-ZsfQNOEmMWig0NpzY2oV0Nt27UFjZywTTcYJvuFF/JA=";
   };
 
   build-system = [

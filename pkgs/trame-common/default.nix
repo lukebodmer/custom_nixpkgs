@@ -1,28 +1,26 @@
 { lib,
   buildPythonPackage,
-  more-itertools,
   fetchPypi,
   setuptools,
-  wslink
+  hatchling
 }:
 
 buildPythonPackage rec {
   pname = "trame_common";
-  version = "3.6.0";
+  version = "1.0.1";
   pyproject = true;
 
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-bHXawT6ENpkPmv/yFSjmQoD1OVr6LirpYo5ko0BM3l4=";
+    hash = "sha256-nUry2abQinQFl39FmTHKudS1OuEgqAJkVF9nnR+alLw=";
   };
 
   build-system = [
     setuptools
+    hatchling
   ];
 
   propagatedBuildInputs = [
-    more-itertools
-    wslink
   ];
 
   doCheck = false;
