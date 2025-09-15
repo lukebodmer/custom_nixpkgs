@@ -1,11 +1,12 @@
-{ lib,
-  buildPythonPackage,
-  pyyaml,
-  fetchPypi,
-  setuptools,
-  #trame_client,
-  #trame_vuetify,
-  #trame_server
+{ lib
+, buildPythonPackage
+, fetchPypi
+, setuptools
+, pyyaml
+, trame_server
+, trame_client
+, trame_common
+, wslink
 }:
 
 buildPythonPackage rec {
@@ -18,23 +19,22 @@ buildPythonPackage rec {
     hash = "sha256-iLhhFiy4sCXoTpPxfc/UOoTQLSwWCMn21Y481kalDAU=";
   };
 
-  build-system = [
-    setuptools
-  ];
+  build-system = [ setuptools ];
 
   dependencies = [
     pyyaml
-    #trame_server
-    #trame_vuetify
+    trame_server
+    trame_client
+    trame_common
+    wslink
   ];
 
   doCheck = false;
   pythonImportsCheck = [ "trame" ];
 
   meta = with lib; {
-    description = "open-source platform for creating interactive and powerful visual analytics applications";
+    description = "Open-source platform for creating interactive and powerful visual analytics applications";
     homepage = "https://kitware.github.io/trame/";
     license = licenses.asl20;
   };
 }
-
