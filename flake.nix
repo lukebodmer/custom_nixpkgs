@@ -6,7 +6,7 @@
   };
 
   outputs =
-    { self, nixpkgs,  ... }:
+    { nixpkgs,  ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -26,30 +26,7 @@
         python312 = prev.python312.override {
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
-	    trame = py-final.callPackage ./pkgs/trame {
-	     #inherit trame_server;
-	     #inherit trame_client;
-	     #inherit trame_common;
-	     #inherit trame_vuetify;
-	     #inherit trame_vtk;
-	     #inherit wslink;
-	    };
-	    #trame_common = py-final.callPackage ./pkgs/trame-common {
-	    #};
-	    #trame_client = py-final.callPackage ./pkgs/trame-client {
-	    #  inherit trame_common;
-	    #};
-	    #trame_server = py-final.callPackage ./pkgs/trame-server {
-	    #  inherit wslink;
-	    #};
-	    #trame_vtk = py-final.callPackage ./pkgs/trame-vtk {
-	    #  inherit trame_client;
-	    #};
-	    #trame_vuetify = py-final.callPackage ./pkgs/trame-vuetify {
-      	    #  inherit trame_client;
-	    #  inherit trame_vtk;
-	    #};
-	    #wslink = py-final.callPackage ./pkgs/wslink { };
+	    trame = py-final.callPackage ./pkgs/trame { };
             #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
             #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
           };
@@ -67,30 +44,8 @@
       petsc4py = pkgs.python3Packages.callPackage ./pkgs/petsc4py {
         inherit petsc;
       };
-      trame = pkgs.python312Packages.callPackage ./pkgs/trame{
-      #	inherit trame_server;
-      #	#inherit trame_client;
-      #	inherit trame_common;
-      #	inherit trame_vuetify;
-      #	inherit trame_vtk;
-      #	inherit wslink;
-      };
-      #trame_common = pkgs.python312Packages.callPackage ./pkgs/trame-common { };
-      #trame_client = pkgs.python312Packages.callPackage ./pkgs/trame-client{
-      #  inherit trame_common;
-      #};
-      #trame_server = pkgs.python312Packages.callPackage ./pkgs/trame-server {
-      #	inherit wslink;
-      #};
-      #trame_vtk = pkgs.python312Packages.callPackage ./pkgs/trame-vtk {
-      #	inherit trame_client;
-      #};
-      #trame_vuetify = pkgs.python312Packages.callPackage ./pkgs/trame-vuetify {
-      #	inherit trame_client;
-      #	inherit trame_vtk;
-      #};
+      trame = pkgs.python312Packages.callPackage ./pkgs/trame { };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
-      #wslink = pkgs.python312Packages.callPackage ./pkgs/wslink { };
     };
   };
 }
