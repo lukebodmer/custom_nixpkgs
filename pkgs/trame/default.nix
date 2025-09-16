@@ -76,8 +76,6 @@ let
     
     build-system = [
       setuptools
-      #hatchling
-      
       trame_client
     ];
     
