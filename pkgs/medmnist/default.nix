@@ -1,7 +1,16 @@
-{ lib
-, buildPythonPackage
-, fetchPypi
-, setuptools
+{ lib,
+  buildPythonPackage,
+  fetchPypi,
+  setuptools,
+  numpy,
+  pandas,
+  scikit-learn,
+  scikit-image,
+  tqdm,
+  pillow,
+  fire,
+  torch-bin,
+  torchvision-bin,
 }:
 
 buildPythonPackage rec {
@@ -16,6 +25,18 @@ buildPythonPackage rec {
 
   build-system = [
     setuptools
+  ];
+
+  propagatedBuildInputs = [
+    numpy
+    pandas
+    scikit-learn
+    scikit-image
+    tqdm
+    pillow
+    fire
+    torch-bin
+    torchvision-bin
   ];
 
   doCheck = false;
