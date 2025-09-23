@@ -27,7 +27,7 @@
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
 	    trame = py-final.callPackage ./pkgs/trame { };
-	    mednist = py-final.callPackage ./pkgs/mednist{ };
+	    medmnist = py-final.callPackage ./pkgs/medmnist{ };
             #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
             #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
           };
@@ -38,7 +38,7 @@
       cppimport = pkgs.python312Packages.callPackage ./pkgs/cppimport { };
       dev-env = pkgs.callPackage ./pkgs/dev-env { };
       hello-nix = pkgs.callPackage ./pkgs/hello-nix { }; 
-      mednist = pkgs.python3Packages.callPackage ./pkgs/mednist{ };
+      medmnist = pkgs.python3Packages.callPackage ./pkgs/medmnist{ };
       mpi4py = pkgs.python3Packages.callPackage ./pkgs/mpi4py { };
       petsc = pkgs.callPackage ./pkgs/petsc { };
       petsc-project = pkgs.callPackage ./pkgs/petsc-project { };
