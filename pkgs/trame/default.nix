@@ -7,6 +7,7 @@
 , more-itertools
 , hatchling
 , pyyaml
+, plotly
 }:
 let
 
@@ -194,6 +195,7 @@ buildPythonPackage rec {
 
   # replicate what pip would pull in
   propagatedBuildInputs = [
+    plotly
     pyyaml
     trame_client
     trame_server
