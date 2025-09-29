@@ -27,6 +27,13 @@
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
 	    trame = py-final.callPackage ./pkgs/trame { };
+	    trame_client = py-final.callPackage ./pkgs/trame_client { };
+	    trame_vtk = py-final.callPackage ./pkgs/trame_vtk {
+	      inherit trame_client;
+	    };
+	    trame_vuetify = py-final.callPackage ./pkgs/trame_vuetify {
+	      inherit trame_client;
+	    };
 	    medmnist = py-final.callPackage ./pkgs/medmnist{ };
             #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
             #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
