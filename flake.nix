@@ -28,10 +28,10 @@
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
 	    trame = py-final.callPackage ./pkgs/trame { };
 	    trame_client = py-final.callPackage ./pkgs/trame_client { };
-	    trame_vtk = py-final.callPackage ./pkgs/trame_vtk {
+	    trame-vtk = py-final.callPackage ./pkgs/trame-vtk {
 	      inherit trame_client;
 	    };
-	    trame_vuetify = py-final.callPackage ./pkgs/trame_vuetify {
+	    trame-vuetify = py-final.callPackage ./pkgs/trame-vuetify {
 	      inherit trame_client;
 	    };
 	    medmnist = py-final.callPackage ./pkgs/medmnist{ };
