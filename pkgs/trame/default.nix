@@ -193,7 +193,7 @@ buildPythonPackage rec {
   build-system = [ setuptools ];
 
   # replicate what pip would pull in
-  buildInputs = [
+  propagatedBuildInputs = [
     pyyaml
     trame_client
     trame_server
