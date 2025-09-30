@@ -20,7 +20,7 @@ buildPythonPackage rec {
   ];
   
   buildInputs = [
-    #trame_client
+    trame_client
   ];
   
   doCheck = false;

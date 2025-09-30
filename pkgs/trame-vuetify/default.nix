@@ -22,7 +22,7 @@ buildPythonPackage rec {
   buildInputs = [
     trame_client
   ];
-  
+ 
   doCheck = false;
   pythonImportsCheck = [ "trame_vuetify" ];
   

@@ -26,20 +26,23 @@
         python312 = prev.python312.override {
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
-	    trame = py-final.callPackage ./pkgs/trame { };
-	    trame_client = py-final.callPackage ./pkgs/trame_client { };
+	    trame = py-final.callPackage ./pkgs/trame {
+	      inherit trame-client;
+	    };
+	    #trame_common = py-final.callPackage ./pkgs/trame-common { };
+	    trame-client = py-final.callPackage ./pkgs/trame-client {
+	     # inherit trame_common;
+	    };
 	    trame-vtk = py-final.callPackage ./pkgs/trame-vtk {
-	      inherit trame_client;
+	      inherit trame-client;
 	    };
 	    trame-vuetify = py-final.callPackage ./pkgs/trame-vuetify {
-	      inherit trame_client;
+	      inherit trame-client;
 	    };
 	    trame-components = py-final.callPackage ./pkgs/trame-components {
-	      #inherit trame_client;
+	      inherit trame-client;
 	    };
 	    medmnist = py-final.callPackage ./pkgs/medmnist{ };
-            #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
-            #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
           };
         };
     };
@@ -56,9 +59,12 @@
       petsc4py = pkgs.python3Packages.callPackage ./pkgs/petsc4py {
         inherit petsc;
       };
-      trame = pkgs.python312Packages.callPackage ./pkgs/trame { };
+      trame = pkgs.python312Packages.callPackage ./pkgs/trame {
+	inherit trame-client;
+      };
+      trame-client = pkgs.python312Packages.callPackage ./pkgs/trame-client { };
       trame-components = pkgs.python312Packages.callPackage ./pkgs/trame-components {
-	#inherit trame_client;
+	inherit trame-client;
       };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
     };
