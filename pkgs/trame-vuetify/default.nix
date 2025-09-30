@@ -2,7 +2,7 @@
 , buildPythonPackage
 , fetchPypi
 , setuptools
-, trame_client
+, trame-client
 }:
 
 buildPythonPackage rec {
@@ -20,7 +20,7 @@ buildPythonPackage rec {
   ];
   
   buildInputs = [
-    trame_client
+    trame-client
   ];
  
   doCheck = false;
