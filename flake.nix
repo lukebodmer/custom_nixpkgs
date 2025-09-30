@@ -66,6 +66,9 @@
       trame-components = pkgs.python312Packages.callPackage ./pkgs/trame-components {
 	inherit trame-client;
       };
+      trame-vtk = pkgs.python312Packages.callPackage ./pkgs/trame-vtk {
+	inherit trame-client;
+      };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
     };
   };

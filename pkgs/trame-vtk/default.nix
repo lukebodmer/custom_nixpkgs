@@ -3,7 +3,7 @@
 , fetchPypi
 , setuptools
 , hatchling
-, trame_client
+, trame-client
 }:
 
 buildPythonPackage rec {
@@ -22,7 +22,7 @@ buildPythonPackage rec {
   ];
   
   dependencies = [
-    trame_client
+    trame-client
   ];
   
   doCheck = false;
