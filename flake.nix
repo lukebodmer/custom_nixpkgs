@@ -34,6 +34,9 @@
 	    trame-vuetify = py-final.callPackage ./pkgs/trame-vuetify {
 	      inherit trame_client;
 	    };
+	    trame-components = py-final.callPackage ./pkgs/trame-components {
+	      #inherit trame_client;
+	    };
 	    medmnist = py-final.callPackage ./pkgs/medmnist{ };
             #mpi4py = py-final.callPackage ./pkgs/mpi4py { };
             #petsc4py = py-final.callPackage ./pkgs/petsc4py { inherit petsc; };
@@ -54,6 +57,9 @@
         inherit petsc;
       };
       trame = pkgs.python312Packages.callPackage ./pkgs/trame { };
+      trame-components = pkgs.python312Packages.callPackage ./pkgs/trame-components {
+	#inherit trame_client;
+      };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
     };
   };
