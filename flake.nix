@@ -39,6 +39,9 @@
 	    trame-vuetify = py-final.callPackage ./pkgs/trame-vuetify {
 	      inherit trame-client;
 	    };
+	    trame-matplotlib= py-final.callPackage ./pkgs/trame-matplotlib{
+	      #inherit trame-client;
+	    };
 	    trame-components = py-final.callPackage ./pkgs/trame-components {
 	      inherit trame-client;
 	    };
@@ -68,6 +71,9 @@
       };
       trame-vtk = pkgs.python312Packages.callPackage ./pkgs/trame-vtk {
 	inherit trame-client;
+      };
+      trame-matplotlib = pkgs.python312Packages.callPackage ./pkgs/trame-matplotlib{
+	#inherit trame-client;
       };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
     };
