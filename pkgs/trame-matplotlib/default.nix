@@ -22,6 +22,9 @@ buildPythonPackage rec {
   
   buildInputs = [
     trame-client
+  ];
+
+   propagatedBuildInputs = [
     mpld3
   ];
  
