@@ -26,6 +26,7 @@
         python312 = prev.python312.override {
           packageOverrides = py-final: _: rec {
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
+	    mpld3 = py-final.callPackage ./pkgs/mpld3{ };
 	    trame = py-final.callPackage ./pkgs/trame {
 	      inherit trame-client;
 	    };
@@ -40,7 +41,8 @@
 	      inherit trame-client;
 	    };
 	    trame-matplotlib= py-final.callPackage ./pkgs/trame-matplotlib{
-	      #inherit trame-client;
+	      inherit trame-client;
+	      inherit mpld3;
 	    };
 	    trame-components = py-final.callPackage ./pkgs/trame-components {
 	      inherit trame-client;
@@ -55,6 +57,7 @@
       dev-env = pkgs.callPackage ./pkgs/dev-env { };
       hello-nix = pkgs.callPackage ./pkgs/hello-nix { }; 
       medmnist = pkgs.python3Packages.callPackage ./pkgs/medmnist{ };
+      mpld3 = pkgs.python3Packages.callPackage ./pkgs/mpld3{ };
       mpi4py = pkgs.python3Packages.callPackage ./pkgs/mpi4py { };
       petsc = pkgs.callPackage ./pkgs/petsc { };
       petsc-project = pkgs.callPackage ./pkgs/petsc-project { };
@@ -73,7 +76,7 @@
 	inherit trame-client;
       };
       trame-matplotlib = pkgs.python312Packages.callPackage ./pkgs/trame-matplotlib{
-	#inherit trame-client;
+	inherit trame-client;
       };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
     };

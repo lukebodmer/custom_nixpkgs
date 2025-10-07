@@ -2,12 +2,12 @@
 , buildPythonPackage
 , fetchPypi
 , setuptools
-, trame-client
+#, trame-client
 }:
 
 buildPythonPackage rec {
-  pname = "trame-matplotlib";
-  version = "2.0.3";
+  pname = "mpld3";
+  version = "0.5.11";
   pyproject = true;
   
   src = fetchPypi {
@@ -20,7 +20,7 @@ buildPythonPackage rec {
   ];
   
   buildInputs = [
-    trame-client
+#    trame-client
   ];
  
   doCheck = false;
