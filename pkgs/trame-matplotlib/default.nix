@@ -3,6 +3,7 @@
 , fetchPypi
 , setuptools
 , trame-client
+, mpld3
 }:
 
 buildPythonPackage rec {
@@ -21,6 +22,7 @@ buildPythonPackage rec {
   
   buildInputs = [
     trame-client
+    mpld3
   ];
  
   doCheck = false;

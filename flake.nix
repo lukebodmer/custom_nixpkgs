@@ -57,7 +57,7 @@
       dev-env = pkgs.callPackage ./pkgs/dev-env { };
       hello-nix = pkgs.callPackage ./pkgs/hello-nix { }; 
       medmnist = pkgs.python3Packages.callPackage ./pkgs/medmnist{ };
-      mpld3 = pkgs.python3Packages.callPackage ./pkgs/mpld3{ };
+      mpld3 = pkgs.python312Packages.callPackage ./pkgs/mpld3{ };
       mpi4py = pkgs.python3Packages.callPackage ./pkgs/mpi4py { };
       petsc = pkgs.callPackage ./pkgs/petsc { };
       petsc-project = pkgs.callPackage ./pkgs/petsc-project { };
@@ -77,6 +77,7 @@
       };
       trame-matplotlib = pkgs.python312Packages.callPackage ./pkgs/trame-matplotlib{
 	inherit trame-client;
+	inherit mpld3;
       };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
     };

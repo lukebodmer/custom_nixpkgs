@@ -2,7 +2,8 @@
 , buildPythonPackage
 , fetchPypi
 , setuptools
-#, trame-client
+, jinja2
+, matplotlib
 }:
 
 buildPythonPackage rec {
@@ -12,7 +13,7 @@ buildPythonPackage rec {
   
   src = fetchPypi {
     inherit pname version;
-    hash = "sha256-TPC+sJL8KxGYhIA0agyuPOX+AmdCnHh2cnqDib3tXNY=";
+    hash = "sha256-v/4sk/i0BvjU3AWVZd/stHeeih/FC/u05/XUdqJ06rc=";
   };
   
   build-system = [
@@ -20,7 +21,8 @@ buildPythonPackage rec {
   ];
   
   buildInputs = [
-#    trame-client
+    jinja2
+    matplotlib
   ];
  
   doCheck = false;
