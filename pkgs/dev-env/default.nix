@@ -7,13 +7,16 @@ in
   pkgs.writeShellScriptBin "dev-env" ''
     cat <<'EOF' > flake.nix
 ${flakeNixContent}
-    EOF
+ EOF
+
     cat <<'EOF' > .envrc
 ${envrcContent}
-    EOF
+ EOF
+
     cat <<'EOF' > .gitignore
 .envrc
 .direnv/
-     EOF
+EOF
+
      direnv allow
   ''
