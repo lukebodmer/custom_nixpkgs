@@ -5,16 +5,8 @@ let
   envrcContent = builtins.readFile ./dev_envrc;
 in
 pkgs.writeShellScriptBin "dev-env" ''
-  cat <<'EOF' > flake.nix
-    ${flakeNixContent}
-  EOF
-  cat <<'EOF' > .envrc
-    ${envrcContent}
-  EOF
-  cat <<'EOF' > .gitignore
-.envrc
-.direnv/
-  EOF
+  printf '%s\n' '${flakeNixContent}' > flake.nix
+  printf '%s\n' '${envrcContent}' > .envrc
+  printf '%s\n' '.envrc\n.direnv/' > .gitignore
   direnv allow
 ''
-
