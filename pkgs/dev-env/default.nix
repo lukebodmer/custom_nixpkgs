@@ -1,5 +1,4 @@
-{ pkgs,
-  ...}:
+{ pkgs, ...}:
 
 let
   flakeNixContent = builtins.readFile ./dev_flake.nix;
@@ -18,3 +17,4 @@ pkgs.writeShellScriptBin "dev-env" ''
   EOF
   direnv allow
 ''
+

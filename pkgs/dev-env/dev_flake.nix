@@ -6,7 +6,7 @@
     custom-nixpkgs.url = "github:lukebodmer/custom_nixpkgs";
   };
 
-  outputs = { self, nixpkgs, custom-nixpkgs, ... }:
+  outputs = { nixpkgs, custom-nixpkgs, ... }:
       let
         system = "x86_64-linux";
         pkgs = import nixpkgs {
