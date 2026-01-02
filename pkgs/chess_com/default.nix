@@ -2,7 +2,9 @@
   fetchPypi,
   requests,
   aiohttp,
-  buildPythonPackage
+  buildPythonPackage,
+  setuptools,
+  wheel
 }:
 
 buildPythonPackage rec {
@@ -16,8 +18,11 @@ buildPythonPackage rec {
     sha256 = "sha256-4G6213QAEVdOSvnqDoCKltS92t6F3udv9ZW/Jjabwf0=";
   };
 
-  # Build inputs/dependencies
-  # You must include any runtime deps not already in nixpkgs
+  nativeBuildInputs = [
+    setuptools
+    wheel
+  ];
+
   propagatedBuildInputs = [
     requests
     aiohttp
