@@ -25,7 +25,7 @@
 
         python312 = prev.python312.override {
           packageOverrides = py-final: _: rec {
-	    chesscom = py-final.callPackage ./pkgs/chesscom { };
+	    chess_com = py-final.callPackage ./pkgs/chess_com { };
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
 	    mpld3 = py-final.callPackage ./pkgs/mpld3{ };
 	    trame = py-final.callPackage ./pkgs/trame {
@@ -54,7 +54,7 @@
     };
 
     packages.${system} = rec {
-      chesscom = pkgs.python312Packages.callPackage ./pkgs/chesscom { };
+      chess_com = pkgs.python312Packages.callPackage ./pkgs/chess_com { };
       cppimport = pkgs.python312Packages.callPackage ./pkgs/cppimport { };
       dev-env = pkgs.callPackage ./pkgs/dev-env { };
       hello-nix = pkgs.callPackage ./pkgs/hello-nix { }; 

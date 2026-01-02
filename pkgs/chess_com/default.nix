@@ -1,22 +1,24 @@
-{ lib
-, fetchPypi
-, python3Packages
+{ lib,
+  fetchPypi,
+  requests,
+  aiohttp,
+  buildPythonPackage
 }:
 
-python3Packages.buildPythonPackage rec {
-  pname = "python-chess-com";
+buildPythonPackage rec {
+  pname = "chess_com";
   version = "3.13.0";
+  pyproject = true;
 
   # Fetch the source from PyPI
   src = fetchPypi {
     inherit pname version;
-    # SHA256 from the PyPI source tarball
-    sha256 = "e06eb6d7740011574e4af9ea0e808a96d4bddade85dee76ff595bf26369bc1fd";
+    sha256 = "sha256-4G6213QAEVdOSvnqDoCKltS92t6F3udv9ZW/Jjabwf0=";
   };
 
   # Build inputs/dependencies
   # You must include any runtime deps not already in nixpkgs
-  propagatedBuildInputs = with python3Packages; [
+  propagatedBuildInputs = [
     requests
     aiohttp
   ];
