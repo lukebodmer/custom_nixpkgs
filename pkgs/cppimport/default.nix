@@ -6,7 +6,7 @@
   mako,
   pybind11,
   filelock,
-  setuptools_scm,
+  setuptools-scm,
   wheel,
 }:
 
@@ -26,7 +26,7 @@ buildPythonPackage rec {
 
   build-system = [
     setuptools
-    setuptools_scm
+    setuptools-scm
     wheel
   ];
 
