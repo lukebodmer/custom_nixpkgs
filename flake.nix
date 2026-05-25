@@ -27,6 +27,7 @@
           packageOverrides = py-final: _: rec {
 	    chess_com = py-final.callPackage ./pkgs/chess_com { };
 	    cppimport = py-final.callPackage ./pkgs/cppimport { };
+	    nba_api = py-final.callPackage ./pkgs/nba_api { };
 	    mpld3 = py-final.callPackage ./pkgs/mpld3{ };
 	    trame = py-final.callPackage ./pkgs/trame {
 	      inherit trame-client;
@@ -56,6 +57,7 @@
     packages.${system} = rec {
       chess_com = pkgs.python312Packages.callPackage ./pkgs/chess_com { };
       cppimport = pkgs.python312Packages.callPackage ./pkgs/cppimport { };
+      nba_api = pkgs.python312Packages.callPackage ./pkgs/nba_api { };
       dev-env = pkgs.callPackage ./pkgs/dev-env { };
       hello-nix = pkgs.callPackage ./pkgs/hello-nix { }; 
       medmnist = pkgs.python3Packages.callPackage ./pkgs/medmnist{ };
