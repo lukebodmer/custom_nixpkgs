@@ -16,8 +16,9 @@
     in
     {
       overlays.default = final: prev: rec {
-        dev-env = prev.callPackage ./pkgs/dev-env{ }; 
-        hello-nix = prev.callPackage ./pkgs/hello-nix { }; 
+        dev-env = prev.callPackage ./pkgs/dev-env{ };
+        hello-nix = prev.callPackage ./pkgs/hello-nix { };
+        newman = prev.callPackage ./pkgs/newman { python313 = prev.python313; };
         petsc = prev.callPackage ./pkgs/petsc { };
         petsc-project = prev.callPackage ./pkgs/petsc-project { };
         petscrc-update = prev.callPackage ./pkgs/petscrc-update { };
@@ -84,6 +85,7 @@
 	inherit mpld3;
       };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
+      newman = pkgs.python313Packages.callPackage ./pkgs/newman { python313 = pkgs.python313; };
     };
   };
 }
