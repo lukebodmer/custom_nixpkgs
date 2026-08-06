@@ -1,16 +1,16 @@
-{ lib, python313 }:
+{ lib, python313, fetchFromGitHub }:
 
 python313.pkgs.buildPythonApplication {
   pname = "newman";
   version = "0.1.0";
   pyproject = true;
 
-  # Development: use local path for fast iteration.
-  # Release: switch to fetchFromGitHub and run:
-  #   nix flake prefetch "github:lukebodmer/newman/<commit-sha>"
-  # then set rev and sha256, push custom_nixpkgs, and run
-  #   nix flake update custom-nixpkgs  (in system/nixos)
-  src = /home/lj/projects/newman;
+  src = fetchFromGitHub {
+    owner = "lukebodmer";
+    repo = "newman";
+    rev = "6d85cf63e0f11159060672c1bf308d78cf1ef7ee";
+    sha256 = "sha256-CM5JpcCPaCx3zexTvVFCb9X7N65UXxZ8O1CqKHeSOI0=";
+  };
 
   build-system = [ python313.pkgs.setuptools ];
   dependencies = [ python313.pkgs.rich python313.pkgs.httpx ];
