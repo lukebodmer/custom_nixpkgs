@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub, zip, bash, python3 }:
+{ lib, stdenv, fetchFromGitHub, bash, python3 }:
 
 stdenv.mkDerivation rec {
   pname = "newman-bridge";
@@ -7,22 +7,18 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "lukebodmer";
     repo = "newman-firefox-bridge";
-    rev = "7b415cfce5c7b4c4d874124df926e84c595ae15a";
-    sha256 = "sha256-BrsnBleObqIcp8lTmceRf5ptK0FzoTtH7pmQ5Rwv37U=";
+    rev = "3331ac881239bff6862fc346ac150757d37b5f0b";
+    sha256 = "sha256-Of/fS41dEd15aBg9wIshkhLIRsHtjrECWcgrffI2rZ4=";
   };
 
-  nativeBuildInputs = [ zip ];
+  nativeBuildInputs = [ ];
 
-  buildPhase = ''
-    mkdir -p xpi-work
-    cp extension/manifest.json extension/background.js xpi-work/
-    cd xpi-work && zip -r ../newman_bridge.xpi . && cd ..
-  '';
+  buildPhase = "true";
 
   installPhase = ''
     mkdir -p $out/bin $out/share/newman-bridge $out/share/mozilla/native-messaging-hosts
 
-    cp newman_bridge.xpi $out/share/newman-bridge/
+    cp newman_bridge_signed.xpi $out/share/newman-bridge/newman_bridge.xpi
     cp host/newman_bridge.py $out/share/newman-bridge/
 
     # Manifest with the final installed path baked in
