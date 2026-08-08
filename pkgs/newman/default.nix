@@ -13,7 +13,7 @@ python313.pkgs.buildPythonApplication {
   };
 
   build-system = [ python313.pkgs.setuptools ];
-  dependencies = [ python313.pkgs.rich python313.pkgs.httpx python313.pkgs.trafilatura ];
+  dependencies = [ python313.pkgs.rich python313.pkgs.httpx python313.pkgs.trafilatura python313.pkgs.pypdf ];
 
   meta = with lib; {
     description = "A personal AI agent harness for the terminal";

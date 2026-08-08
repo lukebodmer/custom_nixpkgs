@@ -19,6 +19,7 @@
         dev-env = prev.callPackage ./pkgs/dev-env{ };
         hello-nix = prev.callPackage ./pkgs/hello-nix { };
         newman = prev.callPackage ./pkgs/newman { python313 = prev.python313; };
+        newman-bridge = prev.callPackage ./pkgs/newman-bridge { };
         petsc = prev.callPackage ./pkgs/petsc { };
         petsc-project = prev.callPackage ./pkgs/petsc-project { };
         petscrc-update = prev.callPackage ./pkgs/petscrc-update { };
@@ -86,6 +87,7 @@
       };
       waybar-weather = pkgs.callPackage ./pkgs/waybar-weather { };
       newman = pkgs.python313Packages.callPackage ./pkgs/newman { python313 = pkgs.python313; };
+      newman-bridge = pkgs.callPackage ./pkgs/newman-bridge { };
     };
   };
 }
