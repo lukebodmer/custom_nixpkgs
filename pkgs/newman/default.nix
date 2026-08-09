@@ -8,8 +8,8 @@ python313.pkgs.buildPythonApplication {
   src = fetchFromGitHub {
     owner = "lukebodmer";
     repo = "newman";
-    rev = "95a67ed30d9b0ab82ebdcc1df4f017caa7c1bd8c";
-    sha256 = "sha256-+z0gQbO2azLgXw9ivEY4giCRfNZbHbLCPCP/Jyt6F+Y=";
+    rev = "d1c33f282168b8a27bf9382d376b28d6c6e05695";
+    sha256 = "sha256-MByAUCxgrnvNeEGDiwJE6daa4uOO7pedsqFoyW0nH0c=";
   };
 
   build-system = [ python313.pkgs.setuptools ];
