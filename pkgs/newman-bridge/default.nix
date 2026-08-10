@@ -7,8 +7,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "lukebodmer";
     repo = "newman-firefox-bridge";
-    rev = "3331ac881239bff6862fc346ac150757d37b5f0b";
-    sha256 = "sha256-Of/fS41dEd15aBg9wIshkhLIRsHtjrECWcgrffI2rZ4=";
+    rev = "ec802ee4f5a65a099b27f93c8934eb0576046991";
+    sha256 = "sha256-pLSH8z1CywhOvRmbYtVMtN9i7au+TvUx+3FvcwwhCvQ=";
   };
 
   nativeBuildInputs = [ ];
