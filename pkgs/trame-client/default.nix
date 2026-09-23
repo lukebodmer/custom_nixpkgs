@@ -52,6 +52,12 @@ buildPythonPackage rec {
   
   doCheck = false;
   pythonImportsCheck = [ "trame_client" ];
+
+  # See pkgs/trame/default.nix: strip the bytecode of the shared namespace stub
+  # trame/__init__.py so it merges in buildEnv instead of colliding.
+  postFixup = ''
+    find $out -type d -name __pycache__ -prune -exec rm -rf {} +
+  '';
   
   meta = with lib; {
     description = " trame-client provides the infrastructure on the client-side (browser) to connect to a trame server, synchronize its state with the server, make method call, load dynamically components and feed a dynamic template provided by the server.";

@@ -93,6 +93,16 @@ buildPythonPackage rec {
   doCheck = false;
   pythonImportsCheck = [ "trame" ];
 
+  # Every trame-* distribution ships the same namespace stub trame/__init__.py
+  # (pkgutil.extend_path).  The .py files are byte-identical and buildEnv
+  # merges them, but each derivation byte-compiles the stub and the resulting
+  # __pycache__/__init__*.pyc embeds the source mtime, so two packages collide
+  # in buildEnv.  Drop the bytecode; the identical .py merge cleanly and Python
+  # runs fine without the cache in a read-only store.
+  postFixup = ''
+    find $out -type d -name __pycache__ -prune -exec rm -rf {} +
+  '';
+
   meta = with lib; {
     description = "Unified front-end for interactive applications (umbrella package)";
     homepage = "https://kitware.github.io/trame/";

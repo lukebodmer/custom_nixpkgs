@@ -25,6 +25,12 @@ buildPythonPackage rec {
   
   doCheck = false;
 #  pythonImportsCheck = [ "trame_components" ];
+
+  # See pkgs/trame/default.nix: strip the bytecode of the shared namespace stub
+  # trame/__init__.py so it merges in buildEnv instead of colliding.
+  postFixup = ''
+    find $out -type d -name __pycache__ -prune -exec rm -rf {} +
+  '';
   
   meta = with lib; {
     description = "Trame-components extend trame widgets with helper components that are core to trame widgets.";
