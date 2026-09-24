@@ -21,6 +21,7 @@
         petsc = prev.callPackage ./pkgs/petsc { };
         petsc-project = prev.callPackage ./pkgs/petsc-project { };
         petscrc-update = prev.callPackage ./pkgs/petscrc-update { };
+        slicer = prev.callPackage ./pkgs/slicer { };
         waybar-weather = prev.callPackage ./pkgs/waybar-weather { };
 
         python312 = prev.python312.override {
@@ -69,6 +70,7 @@
       petsc4py = pkgs.python3Packages.callPackage ./pkgs/petsc4py {
         inherit petsc;
       };
+      slicer = pkgs.callPackage ./pkgs/slicer { };
       trame = pkgs.python312Packages.callPackage ./pkgs/trame {
 	inherit trame-client;
       };
