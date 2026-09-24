@@ -1,4 +1,5 @@
 { lib
+, pkgs
 , stdenv
 , fetchurl
 , autoPatchelfHook
@@ -22,11 +23,19 @@
 , nss
 , pcre2
 , pulseaudio
-, unixODBC
 , util-linux
-, xorg
 , zlib
 }:
+
+let
+  # Nixpkgs moved the xorg set and unixODBC to top-level lowercase names and
+  # warns on the old ones, but the new names are not present in every nixpkgs
+  # this overlay is used against. Prefer the new name and fall back.
+  # `fallback` is evaluated lazily, so naming an attribute that a newer
+  # nixpkgs has dropped does not error when the new name is present.
+  pick = new: fallback: if pkgs ? ${new} then pkgs.${new} else fallback;
+  xlib = new: old: pick new pkgs.xorg.${old};
+in
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "slicer";
@@ -68,28 +77,28 @@ stdenv.mkDerivation (finalAttrs: {
     nss
     pcre2
     pulseaudio
-    unixODBC
     util-linux
     zlib
     stdenv.cc.cc.lib
-    xorg.libICE
-    xorg.libSM
-    xorg.libX11
-    xorg.libXcomposite
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXtst
-    xorg.libxcb
-    xorg.xcbutil
-    xorg.xcbutilimage
-    xorg.xcbutilkeysyms
-    xorg.xcbutilrenderutil
-    xorg.xcbutilwm
+    (pick "unixodbc" pkgs.unixODBC)
+    (xlib "libice" "libICE")
+    (xlib "libsm" "libSM")
+    (xlib "libx11" "libX11")
+    (xlib "libxcomposite" "libXcomposite")
+    (xlib "libxcursor" "libXcursor")
+    (xlib "libxdamage" "libXdamage")
+    (xlib "libxext" "libXext")
+    (xlib "libxfixes" "libXfixes")
+    (xlib "libxi" "libXi")
+    (xlib "libxrandr" "libXrandr")
+    (xlib "libxrender" "libXrender")
+    (xlib "libxtst" "libXtst")
+    (xlib "libxcb" "libxcb")
+    (xlib "libxcb-util" "xcbutil")
+    (xlib "libxcb-image" "xcbutilimage")
+    (xlib "libxcb-keysyms" "xcbutilkeysyms")
+    (xlib "libxcb-render-util" "xcbutilrenderutil")
+    (xlib "libxcb-wm" "xcbutilwm")
   ];
 
   # The bundled libraries live in several directories that reference each
